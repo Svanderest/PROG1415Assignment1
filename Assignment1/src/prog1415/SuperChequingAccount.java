@@ -41,7 +41,7 @@ public final class SuperChequingAccount extends ChequingAccount {
 			//override base class ToString method to return account information and fee
 			public String toString()
 			{
-				return super.toString() + String.format("\n\tDraft: %f",this.overDraft);
+				return super.toString() + String.format("\n\tDraft: $%.2f",this.overDraft);
 			}
 
 			//implement the abstract withDraw method
