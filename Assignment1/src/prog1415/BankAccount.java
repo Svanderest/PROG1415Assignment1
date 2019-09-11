@@ -101,7 +101,7 @@ public abstract class BankAccount {
 	
 	public String toString()
 	{				
-		return String.format("\n\tAccount: %d\n\tName: %s\n\tBalance: %f\n\tOpened: %g\n", this.accountNumber,this.first + " " + this.last,this.balance,this.dateOpen.toString());
+		return String.format("\n\tAccount: %d\n\tName: %s %s\n\tBalance: $%.2f\n\tOpened: %s", this.accountNumber, this.first, this.last, this.balance, this.dateOpen.toString());
 	}
 	
 	public boolean equals(Object obj)

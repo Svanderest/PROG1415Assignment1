@@ -75,7 +75,7 @@ public class SavingsAccount extends BankAccount {
 			//override base class ToString method to return account information and fee
 			public String toString()
 			{
-				return super.toString() + String.format("\n\tRate: %f",this.rate);
+				return super.toString() + String.format("\n\tRate: %%%.2f",this.rate);
 			}
 
 			//must implement the abstract WithDraw method
