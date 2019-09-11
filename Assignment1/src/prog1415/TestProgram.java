@@ -24,7 +24,7 @@ public class TestProgram {
 		//test SuperChequingAccount
 		SuperChequingAccount super = new SuperChequingAccount(5555,new Date());
 		super.setFee(3.25);
-		super.setOverdraft(200);
+		super.setOverDraft(200);
 		super.makeDeposit(200);
 		super.applyFee();
 		super.makeWithdrawal(350);
