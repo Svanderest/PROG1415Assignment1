@@ -49,6 +49,7 @@ public class ATM extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			ATM.this.setVisible(false);
+			System.exit(1);
 		}
 		
 	}	

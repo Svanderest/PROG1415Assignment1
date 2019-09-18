@@ -13,16 +13,24 @@ public class Splash extends JFrame {
 	public Splash()
 	{
 		this.setBounds(100, 100, 500, 400);
-		this.getContentPane().setBackgroundColor(COLOR.BLACK);
-		this.setUndecorated();
+		this.getContentPane().setBackground(Color.BLUE);
+		this.setUndecorated(true);
 		t = new Thread(new Runnable(){
 			public void run()
 			{
-				Thread.sleep(5000);
-				new ATM();
-				this.dispose();
+				try
+				{
+					Thread.sleep(5000);
+					Splash.this.setVisible(false);					
+					new ATM();	
+					Splash.this.dispose();
+				}
+				catch (Exception e) {
+          		  System.out.println(e);
+         		}				
 			}
 		});
+
 		this.setVisible(true);
 		t.start();
 	}
