@@ -34,7 +34,7 @@ public class Splash extends JFrame {
 			{
 				try
 				{
-					Thread.sleep(5000);
+					Thread.sleep(500);
 					Splash.this.setVisible(false);					
 					new ATM();	
 					Splash.this.dispose();

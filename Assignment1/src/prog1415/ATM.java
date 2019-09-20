@@ -9,34 +9,34 @@ import javax.swing.*;
 public class ATM extends JFrame {
 	
 	private static final long serialVersionUID = 4517103375856486687L;
-	JButton exit = new JButton("Exit"); 
-	JButton save = new JButton("Save");
+	JButton exit = new JButton("Exit"); 	
 	
-	JPanel south = new JPanel(new BorderLayout()); 
-	JPanel west = new JPanel(new FlowLayout(FlowLayout.CENTER)); 
+	JPanel south = new JPanel(new BorderLayout()); 	
 	JPanel east = new JPanel(new FlowLayout(FlowLayout.CENTER));
-	JPanel center = new JPanel(new GridLayout(3,2));
-	JLabel label = new JLabel("Hello world");
-	JLabel label2 = new JLabel("Hello again");
-	JTextField box = new JTextField();
-	JTextField box2 = new JTextField();
+	JPanel center = new JPanel(new GridLayout(5, 1));
+	
+	JPanel accountNo = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	JTextField txtAccountNo = new JTextField();
+	JLabel lblAccountNo = new JLabel("Account Number");
+		
 	
 	public ATM() {
 		this.setTitle("My Atm"); 
 		this.setBounds(100, 100, 500, 400);
 		
-		exit.addActionListener(new Exit());
-		west.add(save); 
-		east.add(exit); 
-		south.add(west, BorderLayout.WEST); 
-		south.add(east, BorderLayout.EAST);
-		center.add(label);		
-		center.add(box);
-		center.add(label2);
-		center.add(box2);
+		exit.addActionListener(new Exit());		
 	
 		this.getContentPane().add(south, BorderLayout.SOUTH); 
 		this.getContentPane().add(center, BorderLayout.CENTER);
+		
+		south.add(east, BorderLayout.EAST);
+		east.add(exit);
+		
+		center.add(accountNo);
+		txtAccountNo.setPreferredSize(new Dimension(250,24));		
+		accountNo.add(lblAccountNo);
+		accountNo.add(txtAccountNo);
+		
 		
 		//	display the UI
 		this.setVisible(true);
@@ -49,7 +49,7 @@ public class ATM extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			// TODO Auto-generated method stub
 			ATM.this.setVisible(false);
-			System.exit(1);
+			System.exit(0);
 		}
 		
 	}	
