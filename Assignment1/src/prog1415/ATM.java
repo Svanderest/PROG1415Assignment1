@@ -40,6 +40,9 @@ public class ATM extends JFrame {
 	JButton btnWithdraw = new JButton("Withdraw");
 	JButton btnDeposit = new JButton("Deposit");
 	
+	JPanel logout = new JPanel(new FlowLayout(FlowLayout.CENTER));
+	JButton btnLogout = new JButton("Logout");
+	
 	public ATM() {
 		bankAccounts = new ArrayList<BankAccount>();	
 		bankAccounts.add(new ChequingAccount(0, new Date()));
@@ -53,6 +56,7 @@ public class ATM extends JFrame {
 		btnLogin.addActionListener(new Login());
 		btnDeposit.addActionListener(new Deposit());
 		btnWithdraw.addActionListener(new Withdraw());
+		btnLogout.addActionListener(new Logout());
 	
 		this.getContentPane().add(south, BorderLayout.SOUTH); 
 		this.getContentPane().add(center, BorderLayout.CENTER);
@@ -81,6 +85,9 @@ public class ATM extends JFrame {
 		actionCenter.add(txtAction);
 		actionWest.add(btnWithdraw);
 		actionEast.add(btnDeposit);
+		
+		center.add(logout);
+		logout.add(btnLogout);
 
 		//	display the UI
 		this.setVisible(true);
@@ -178,8 +185,26 @@ public class ATM extends JFrame {
 					JOptionPane.showMessageDialog(null, "Please enter a numeric value", "Invalid input",0);					
 				}
 			}
-			ATM.this.txtAction.setText("");
+			ATM.this.txtAction.setText("");			
 		}
+	}
+	
+	class Logout implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			if(ATM.this.currentAccount == null)
+				JOptionPane.showMessageDialog(null, "Cannot log out when not logged in", "Login required",1);
+			else
+			{
+				ATM.this.txtAction.setText("");
+				ATM.this.lblAmount.setText("");
+				ATM.this.currentAccount = null;
+			}
+		}
+		
 	}
 }	
 
